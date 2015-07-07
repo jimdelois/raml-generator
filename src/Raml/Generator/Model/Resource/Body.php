@@ -2,6 +2,8 @@
 
 namespace DeLois\Raml\Generator\Model\Resource;
 
+use DeLois\Raml\Generator\Model\AbstractNamedParameter;
+
 class Body {
 
   const MEDIA_TYPE_FORM      = 'application/x-www-form-urlencoded';
@@ -29,7 +31,7 @@ class Body {
   public function addExample( /*Example*/ $example ) {
 
     $this->_example = $example;
-    return $example;
+    return $this;
 
   }
 
@@ -39,7 +41,7 @@ class Body {
 
   }
 
-  public function addParameter( NamedParameter $parameter ) {
+  public function addParameter( AbstractNamedParameter $parameter ) {
 
     $this->_parameters[ $parameter->getName() ] = $parameter;
     return $this;
@@ -47,7 +49,7 @@ class Body {
   }
 
   /**
-   * @param NamedParameter[] $parameters
+   * @param AbstractNamedParameter[] $parameters
    *
    * @return Body
    */
